@@ -38,6 +38,7 @@ SHARED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     )
 TENANT_APPS = (
     # your tenant-specific apps
@@ -98,6 +99,9 @@ DATABASES = {
     }
 }
 
+# enabling GIS
+ORIGINAL_BACKEND = "django.contrib.gis.db.backends.postgis"
+
 # Tenant specific database router: start
 DATABASE_ROUTERS = (
     'django_tenants.routers.TenantSyncRouter',
@@ -137,6 +141,8 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
+DATE_INPUT_FORMATS = ('%d/%m/%Y')
+
 USE_I18N = True
 
 USE_L10N = True
@@ -148,3 +154,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Additional locations of static files
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'tenant_app','static'),
+    os.path.join(BASE_DIR,'public_app','static'),
+)
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'public_app','templates'),
+                 os.path.join(BASE_DIR, 'tenant_app','templates'),)

@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<title>County {{county_name}} Accident Data</title>		
+		<link href="{% static 'libs/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+		<link href="{% static 'css/theme.min.css' %}" rel="stylesheet"/>
+		<link href="{% static 'css/accidents.css' %}" rel="stylesheet"/>
+		<link href="{% static 'libs/openlayers/ol.css' %}" rel="stylesheet"/>
+</head>
+<body>
+	<nav role="navigation" class="navbar navbar-default">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">County Accident Data</a>
+        </div>
+    </nav>
+	<div class="container-fluid">
+	  	<div class="row">
+			<div class="col-offset-md2 col-md-8 main-content">
+      			<div id="map" class="map"></div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div>
+        	<p>
+				Contains OS data © Crown copyright and database right (2016)
+        	</p>
+		</div>
+    </footer>
+	<script type="text/javascript" src="{% static 'libs/jquery/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'libs/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'libs/openlayers/ol-debug.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/accidents.js' %}"></script>
+</body>
+</html>
